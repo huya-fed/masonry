@@ -1,0 +1,6 @@
+{
+    "repos": "http://masonry.desandro.com",
+    "version": "v3.3.1",
+    "name": "masonry",
+    "main": "masonry.js"
+}
