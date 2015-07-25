@@ -133,16 +133,8 @@ return $.bridget;
 
 }
 
-// transport
-if ( typeof define === 'function' && define.amd ) {
-	// AMD
-	define( 'jquery-bridget/jquery.bridget',[ 'jquery' ], defineBridget );
-} else if ( typeof exports === 'object' ) {
-	defineBridget( require('jquery') );
-} else {
-	// get jquery from browser global
 	defineBridget( window.jQuery );
-}
+
 
 })( window );
 
@@ -216,16 +208,9 @@ var eventie = {
 
 // ----- module definition ----- //
 
-if ( typeof define === 'function' && define.amd ) {
-	// AMD
-	define( 'eventie/eventie',eventie );
-} else if ( typeof exports === 'object' ) {
-	// CommonJS
-	module.exports = eventie;
-} else {
 	// browser global
 	window.eventie = eventie;
-}
+
 
 })( window );
 
@@ -688,18 +673,9 @@ if ( typeof define === 'function' && define.amd ) {
 				return EventEmitter;
 		};
 
-		// Expose the class either via AMD, CommonJS or the global object
-		if (typeof define === 'function' && define.amd) {
-				define('eventEmitter/EventEmitter',[],function () {
-						return EventEmitter;
-				});
-		}
-		else if (typeof module === 'object' && module.exports){
-				module.exports = EventEmitter;
-		}
-		else {
+
 				exports.EventEmitter = EventEmitter;
-		}
+
 }.call(this));
 
 /*!
@@ -742,19 +718,10 @@ function getStyleProperty( propName ) {
 	}
 }
 
-// transport
-if ( typeof define === 'function' && define.amd ) {
-	// AMD
-	define( 'get-style-property/get-style-property',[],function() {
-		return getStyleProperty;
-	});
-} else if ( typeof exports === 'object' ) {
-	// CommonJS for Component
-	module.exports = getStyleProperty;
-} else {
+
 	// browser global
 	window.getStyleProperty = getStyleProperty;
-}
+
 
 })( window );
 
@@ -995,17 +962,10 @@ return getSize;
 
 }
 
-// transport
-if ( typeof define === 'function' && define.amd ) {
-	// AMD for RequireJS
-	define( 'get-size/get-size',[ 'get-style-property/get-style-property' ], defineGetSize );
-} else if ( typeof exports === 'object' ) {
-	// CommonJS for Component
-	module.exports = defineGetSize( require('desandro-get-style-property') );
-} else {
+
 	// browser global
 	window.getSize = defineGetSize( window.getStyleProperty );
-}
+
 
 })( window );
 
@@ -1077,16 +1037,9 @@ function defineDocReady( eventie ) {
 	return docReady;
 }
 
-// transport
-if ( typeof define === 'function' && define.amd ) {
-	// AMD
-	define( 'doc-ready/doc-ready',[ 'eventie/eventie' ], defineDocReady );
-} else if ( typeof exports === 'object' ) {
-	module.exports = defineDocReady( require('eventie') );
-} else {
+
 	// browser global
 	window.docReady = defineDocReady( window.eventie );
-}
 
 })( window );
 
@@ -1182,19 +1135,9 @@ if ( typeof define === 'function' && define.amd ) {
 		matchesSelector = query;
 	}
 
-	// transport
-	if ( typeof define === 'function' && define.amd ) {
-		// AMD
-		define( 'matches-selector/matches-selector',[],function() {
-			return matchesSelector;
-		});
-	} else if ( typeof exports === 'object' ) {
-		module.exports = matchesSelector;
-	}
-	else {
+
 		// browser global
 		window.matchesSelector = matchesSelector;
-	}
 
 })( Element.prototype );
 
@@ -1210,29 +1153,14 @@ if ( typeof define === 'function' && define.amd ) {
 	
 	// universal module definition
 
-	if ( typeof define == 'function' && define.amd ) {
-		// AMD
-		define( 'fizzy-ui-utils/utils',[
-			'doc-ready/doc-ready',
-			'matches-selector/matches-selector'
-		], function( docReady, matchesSelector ) {
-			return factory( window, docReady, matchesSelector );
-		});
-	} else if ( typeof exports == 'object' ) {
-		// CommonJS
-		module.exports = factory(
-			window,
-			require('doc-ready'),
-			require('desandro-matches-selector')
-		);
-	} else {
+
 		// browser global
 		window.fizzyUIUtils = factory(
 			window,
 			window.docReady,
 			window.matchesSelector
 		);
-	}
+
 
 }( window, function factory( window, docReady, matchesSelector ) {
 
@@ -1475,29 +1403,7 @@ return utils;
 
 ( function( window, factory ) {
 	
-	// universal module definition
-	if ( typeof define === 'function' && define.amd ) {
-		// AMD
-		define( 'outlayer/item',[
-				'eventEmitter/EventEmitter',
-				'get-size/get-size',
-				'get-style-property/get-style-property',
-				'fizzy-ui-utils/utils'
-			],
-			function( EventEmitter, getSize, getStyleProperty, utils ) {
-				return factory( window, EventEmitter, getSize, getStyleProperty, utils );
-			}
-		);
-	} else if (typeof exports === 'object') {
-		// CommonJS
-		module.exports = factory(
-			window,
-			require('wolfy87-eventemitter'),
-			require('get-size'),
-			require('desandro-get-style-property'),
-			require('fizzy-ui-utils')
-		);
-	} else {
+
 		// browser global
 		window.Outlayer = {};
 		window.Outlayer.Item = factory(
@@ -1507,7 +1413,7 @@ return utils;
 			window.getStyleProperty,
 			window.fizzyUIUtils
 		);
-	}
+
 
 }( window, function factory( window, EventEmitter, getSize, getStyleProperty, utils ) {
 
@@ -2066,30 +1972,7 @@ return Item;
 	
 	// universal module definition
 
-	if ( typeof define == 'function' && define.amd ) {
-		// AMD
-		define( 'outlayer/outlayer',[
-				'eventie/eventie',
-				'eventEmitter/EventEmitter',
-				'get-size/get-size',
-				'fizzy-ui-utils/utils',
-				'./item'
-			],
-			function( eventie, EventEmitter, getSize, utils, Item ) {
-				return factory( window, eventie, EventEmitter, getSize, utils, Item);
-			}
-		);
-	} else if ( typeof exports == 'object' ) {
-		// CommonJS
-		module.exports = factory(
-			window,
-			require('eventie'),
-			require('wolfy87-eventemitter'),
-			require('get-size'),
-			require('fizzy-ui-utils'),
-			require('./item')
-		);
-	} else {
+
 		// browser global
 		window.Outlayer = factory(
 			window,
@@ -2099,7 +1982,7 @@ return Item;
 			window.fizzyUIUtils,
 			window.Outlayer.Item
 		);
-	}
+
 
 }( window, function factory( window, eventie, EventEmitter, getSize, utils, Item ) {
 
@@ -2993,30 +2876,14 @@ return Outlayer;
 
 ( function( window, factory ) {
 	
-	// universal module definition
-	if ( typeof define === 'function' && define.amd ) {
-		// AMD
-		define( [
-				'outlayer/outlayer',
-				'get-size/get-size',
-				'fizzy-ui-utils/utils'
-			],
-			factory );
-	} else if ( typeof exports === 'object' ) {
-		// CommonJS
-		module.exports = factory(
-			require('outlayer'),
-			require('get-size'),
-			require('fizzy-ui-utils')
-		);
-	} else {
+
 		// browser global
 		window.Masonry = factory(
 			window.Outlayer,
 			window.getSize,
 			window.fizzyUIUtils
 		);
-	}
+
 
 }( window, function factory( Outlayer, getSize, utils ) {
 
