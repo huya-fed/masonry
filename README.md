@@ -5,9 +5,9 @@ masonry
 
 > 该插件是v2.1.08的，兼容IE7的版本，下面的官网是兼容IE8+以上的，所以没有用到
 
-
-
 > http://masonry.desandro.com/
+> 
+> http://www.css88.com/archives/3321
 
 
 ----------
@@ -33,9 +33,10 @@ masonry
 
 	require('masonry');
 	$('.grid').masonry({
-	  // options
+	  // 元素
 	  itemSelector: '.grid-item',
-	  columnWidth: 200
+	  //间距
+	  gutterWidth: 4
 	});
 
 
