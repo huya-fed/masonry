@@ -1,6 +1,9 @@
 {
-    "repos": "http://masonry.desandro.com",
-    "version": "v3.3.1",
+    "repos": "https://github.com/desandro/masonry",
+    "version": "v2.1.08",
     "name": "masonry",
-    "main": "masonry.js"
+    "main": "masonry.js",
+    "dependencies": [
+        "huya-fed/imagesLoaded"
+    ]
 }
