@@ -4,6 +4,6 @@
     "name": "masonry",
     "main": "masonry.js",
     "dependencies": [
-        "huya-fed/imagesLoaded"
+        "huya-fed/imagesloaded"
     ]
 }
