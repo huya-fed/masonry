@@ -76,8 +76,8 @@ masonry
 ##注意点，图片没有加载成功，获取不到宽和高，会导致布局乱，得引用imagesLoaded插件
 
 	
-	require('imagesLoaded');
-	$grid.imagesLoaded(function() {
+	require('imagesloaded');
+	$grid.imagesloaded(function() {
 		$grid.masonry({
 			// options
 			itemSelector: '.grid-item',
